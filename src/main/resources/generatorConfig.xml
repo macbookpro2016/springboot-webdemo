@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--导入属性配置 -->
+<!--    <properties resource="generator.properties"></properties>-->
+
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="/Users/fengzhihang/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+
+    <!--推送库-->
+    <context id="default" targetRuntime="MyBatis3">
+        <!-- optional，旨在创建class时，对注释进行控制 -->
+
+        <!--jdbc的数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/Asset" userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类
+            targetPackage     指定生成的model生成所在的包名
+            targetProject     指定在该项目下所在的路径
+        -->
+        <javaModelGenerator targetPackage="self.fzh.web.dao" targetProject="src/main/java">
+            <property name="mergeable" value="false"></property>
+
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="true"/>
+
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+
+            <!-- 给Model添加一个父类 -->
+            <!--<property name="rootClass" value="com.study.com.youjia.order.model.ModelBase"/>-->
+
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
+        <sqlMapGenerator targetPackage="resources.mapper"
+                         targetProject="src/main">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+                type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+                type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator targetPackage="self.fzh.web.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value=""/>
+            <property name="exampleMethodVisibility" value=""/>
+            <property name="methodNameCalculator" value=""/>
+
+            <!--为生成的接口添加父接口-->
+            <property name="rootInterface" value=""/>
+        </javaClientGenerator>
+        <!-- 配置数据库表 -->
+        <!--<table tableName="lod_join_examine" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_hand_over" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_house" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_timely_state" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_attach" schema="youjia">
+        <generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>
+        </table>-->
+        <!--<table tableName="lod_house" schema="youjia">-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_attach" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_img" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_house_stock" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_price" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_operations" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_stock" schema="youjia">-->
+        <!--<generatedKey column="lodge_id,dt" sqlStatement="Mysql" identity="" type=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="lod_contract" schema="youjia">-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="lod_cont_attath" schema="youjia">-->
+        <!--&lt;!&ndash;<generatedKey column="lod_contract_id" sqlStatement="Mysql" identity="false" type="" />&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="lod_lock_pwd" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_lock_join" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_house" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_ammeter_join" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_ammeter_operation" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_commission" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_compact_fee" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+
+
+        <!--<table tableName="lod_compact_deco" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="sale_activity_detail" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="landmark_lat_lng" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="distribute_ctrip_mapping_hotel" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="distribute_ctrip_mapping_lodge" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table> -->
+        <!--<table tableName="distribute_ctrip_city" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="distribute_ctrip_district" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+<!--        <table tableName="comment_award" schema="youjia">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+<!--        </table>-->
+        <!--<table tableName="distribute_brush_order" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="distribute_ctrip_hotel" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_landmark_distance" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_compact_ops" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="distribute_post_result" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="third_lodge_my" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lodge" schema="youjia">-->
+        <!--</table>-->
+
+        <!--<table tableName="lod_split_offline" schema="youjia">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>
+        </table>
+        -->
+        <!--<table tableName="lod_community_house" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="lod_fiction_lodge" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>--><!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+
+
+        <!--<table tableName="kingdee_material" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="kingdee_sale_info" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="kingdee_sale_record" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="kingdee_take_info" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="kingdee_take_record" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="kingdee_vendor" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+
+
+        <!--<table tableName="lod_knowledge_library" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="mail_record" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_lock_error" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="lod_price_base" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_price_week" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_price_special" >-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="material_storage_room">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+
+
+        <!--<table tableName="invest_compact" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--<columnOverride column="is_delele" javaType="java.lang.Boolean" jdbcType="TINYINT"/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_find_house" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--<columnOverride column="is_delele" javaType="java.lang.Boolean" jdbcType="TINYINT"/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_relation_record" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--<columnOverride column="is_delele" javaType="java.lang.Boolean" jdbcType="TINYINT"/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_compact_house" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_compact_fee" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_house" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--<columnOverride column="is_delete" javaType="java.lang.Boolean" jdbcType="TINYINT"/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_compact_estimate" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="adjust_price_rule" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="adjust_price_rule_record" schema="youjia">-->
+        <!--<table tableName="invest_payment_apply" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="invest_payment_apply_record" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="adjust_price_task" schema="youjia">-->
+        <!--</table>-->
+        <!--<table tableName="adjust_price_task_record" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="adjust_price_lodge_detail" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <!--<table tableName="lod_socket_energy_record" schema="youjia">-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>-->
+        <!--</table>-->
+        <table tableName="asset" schema="youjia">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" type=""/>
+        </table>
+    </context>
+</generatorConfiguration>
