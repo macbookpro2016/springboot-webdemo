@@ -1,13 +1,3 @@
--- Asset.asset definition
-
-CREATE TABLE `asset` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `category` enum('京东金融','民生','东方财富','负债','招商','公积金','支付宝','华泰','总额','除公积金总') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `num` double(9,2) DEFAULT NULL,
-  `create_time` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
 INSERT INTO Asset.asset (category,num,create_time) VALUES
 	 ('京东金融',17.1,'202307'),
 	 ('京东金融',17.1,'202308'),
@@ -30,3 +20,25 @@ INSERT INTO Asset.asset (category,num,create_time) VALUES
 	 ('东方财富',1.1,'202308'),
 	 ('公积金',24.1,'202307'),
 	 ('公积金',24.2,'202308');
+INSERT INTO Asset.asset (category,num,create_time) VALUES
+	 ('京东金融',6.1,'202309'),
+	 ('公积金',24.6,'202309'),
+	 ('东方财富',2.2,'202309'),
+	 ('华泰',0.0,'202309'),
+	 ('民生',28.2,'202309'),
+	 ('招商',10.7,'202309'),
+	 ('支付宝',4.7,'202309'),
+	 ('负债',-1.4,'202309'),
+	 ('除公积金总',50.7,'202309'),
+	 ('总额',75.3,'202309');
+INSERT INTO Asset.asset (category,num,create_time) VALUES
+	 ('京东金融',6.1,'202311'),
+	 ('总额',75.8,'202311'),
+	 ('除公积金总',49.9,'202311'),
+	 ('负债',-0.8,'202311'),
+	 ('支付宝',4.2,'202311'),
+	 ('招商',7.0,'202311'),
+	 ('民生',30.2,'202311'),
+	 ('华泰',0.0,'202311'),
+	 ('东方财富',3.2,'202311'),
+	 ('公积金',25.9,'202311');
